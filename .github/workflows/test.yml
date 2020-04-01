@@ -13,3 +13,9 @@ jobs:
     - uses: actions/checkout@v2
     - run: npm ci
     - run: npm run test:${{ matrix.native_ext }}
+
+  dummy:
+    runs-on: ubuntu-latest
+    steps:
+      - run: npm publish
+        env: { NODE_AUTH_TOKEN: ${{ secrets.NPMJS_TOKEN }} }
